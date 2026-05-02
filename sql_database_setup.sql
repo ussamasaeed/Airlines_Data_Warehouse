@@ -1,3 +1,4 @@
+
 CREATE SCHEMA customer_management;
 CREATE SCHEMA employee_management;
 CREATE SCHEMA booking_system;
@@ -110,7 +111,6 @@ CREATE TABLE booking_system.customer_ratings (
     rating_id SERIAL PRIMARY KEY,
     customer_id INT,
     flight_id INT,
-    employee_id INT,
     rating_value INT NOT NULL,
     review TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
@@ -124,11 +124,6 @@ CREATE TABLE booking_system.customer_ratings (
         FOREIGN KEY (flight_id)
         REFERENCES booking_system.flights(flight_id)
         ON DELETE CASCADE,
-
-    CONSTRAINT fk_rating_employee
-        FOREIGN KEY (employee_id)
-        REFERENCES employee_management.employees(employee_id)
-        ON DELETE SET NULL,
 
     CONSTRAINT rating_range CHECK (rating_value BETWEEN 1 AND 5)
 );

@@ -70,7 +70,6 @@ CREATE TABLE warehouse.customer_ratings (
     rating_id NUMERIC,
     customer_id INT,
     flight_id INT,
-    employee_id INT,
     rating_value INT,
     review TEXT,
     created_at TIMESTAMP
